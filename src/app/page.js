@@ -18,7 +18,7 @@ const post = {
 export default function Home() {
   return (
     <main>
-      <CardPost post={post} />
+      <CardPost post={post}/>
     </main>
   );
 }

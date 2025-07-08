@@ -12,3 +12,7 @@ body {
     gap: 28px;
     height: 100vh;
 }
+
+* {
+  box-sizing: border-box;
+}
