@@ -1,6 +1,6 @@
 import { CardPost } from "@/components/CardPost"
 
-const post = {
+/* const post = {
   "id": 1,
   "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/introducao-ao-react.png",
   "title": "Introdução ao React",
@@ -13,12 +13,22 @@ const post = {
       "username": "anabeatriz_dev",
       "avatar": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/authors/anabeatriz_dev.png"
   }
+}*/ 
+
+async function getAllPosts () {
+  const response = await fetch('http://localhost:3042/posts')
+  if (!response.ok){
+    console.log('Erro na API')
+  }
+  return response.json()
 }
 
-export default function Home() {
+
+export default async function Home() {
+  const posts = await getAllPosts()
   return (
     <main>
-      <CardPost post={post}/>
+      {posts.map(post => <CardPost post={post}/>)}
     </main>
   );
 }
